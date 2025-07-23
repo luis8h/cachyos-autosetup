@@ -38,6 +38,9 @@ PACKAGES=(
     ttf-jetbrains-mono-nerd
     texlive-binextra
     brave
+    sddm
+    nemo
+    cronie
 )
 
 # Function to check if a package is installed
@@ -147,3 +150,11 @@ fc-cache -fv
 
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# switch display manager (might also resolve suspend issues)
+sudo systemctl disable ly.service
+sudo systemctl enable sddm.service
+
+# enable cronie
+sudo systemctl start cronie.service
+sudo systemctl enable cronie.service
