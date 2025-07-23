@@ -18,6 +18,25 @@ PACKAGES=(
     zoxide
     tmux
     xclip
+    nodejs
+    npm
+    docker
+    docker-compose
+    ripgrep
+    fd
+    expat
+    libxml2
+    pkgconf
+    alsa-lib
+    openssl
+    cmake
+    freetype2
+    libxcb
+    harfbuzz
+    fontconfig
+    gcc
+    ttf-jetbrains-mono-nerd
+    texlive-binextra
 )
 
 # Function to check if a package is installed
@@ -64,25 +83,64 @@ install_yay() {
     fi
 }
 
-echo "installing packages..."
+install_yay_package() {
+    local pkg=$1
+
+    if pacman -Q "$pkg" &>/dev/null || yay -Q "$pkg" &>/dev/null; then
+        echo "✓ $pkg is already installed"
+    else
+        echo "Installing $pkg via yay..."
+        yay -S --noconfirm "$pkg"
+    fi
+}
+
+install_yay_packages() {
+    for pkg in "$@"; do
+        install_yay_package "$pkg"
+    done
+}
+
+set_default_shell_to_zsh() {
+    local zsh_path
+    zsh_path=$(command -v zsh)
+
+    if ! grep -qx "$zsh_path" /etc/shells; then
+        echo "Adding $zsh_path to /etc/shells"
+        echo "$zsh_path" | sudo tee -a /etc/shells
+    fi
+
+    echo "Changing default shell to $zsh_path for $USER"
+    chsh -s "$zsh_path"
+}
+
+echo "installing pacman packages ..."
 install_packages
 
 echo "installing yay ..."
 install_yay
 
-echo "installing other tools ..."
+echo "installing yay packages ..."
+install_yay_packages tmux-plugin-manager zgen
 
-# zgen
-git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+echo "installing other tools ..."
 
 # kanata
 cargo install kanata
 
 # set zsh as default
-chsh -s $(which zsh)
+set_default_shell_to_zsh
 
-# nerdfont
-yay -S nerd-fonts-jetbrains-mono
+# docker
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
+sudo usermod -aG docker $USER
 
-# tmux plugin manager
-yay -S tmux-plugin-manager
+# needed for treesitter auto_install to work with vimtex
+sudo npm install -g tree-sitter-cli
+
+# silicon
+cargo install silicon
+
+# refresh font cache
+fc-cache -fv
+
