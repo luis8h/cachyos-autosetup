@@ -37,6 +37,7 @@ PACKAGES=(
     gcc
     ttf-jetbrains-mono-nerd
     texlive-binextra
+    brave
 )
 
 # Function to check if a package is installed
@@ -120,7 +121,7 @@ echo "installing yay ..."
 install_yay
 
 echo "installing yay packages ..."
-install_yay_packages tmux-plugin-manager zgen
+install_yay_packages zgen
 
 echo "installing other tools ..."
 
@@ -144,3 +145,5 @@ cargo install silicon
 # refresh font cache
 fc-cache -fv
 
+# tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
