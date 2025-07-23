@@ -41,6 +41,7 @@ PACKAGES=(
     sddm
     nemo
     cronie
+    flameshot
 )
 
 # Function to check if a package is installed
