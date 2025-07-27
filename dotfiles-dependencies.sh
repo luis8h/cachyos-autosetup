@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+sudo pacman -Syu
+
 # List of required packages
 PACKAGES=(
     git
