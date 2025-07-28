@@ -44,6 +44,11 @@ PACKAGES=(
     nemo
     cronie
     flameshot
+    network-manager-applet
+    nm-connection-editor
+    lxrandr
+    ttf-terminus-nerd
+    ttf-font-awesome
 )
 
 # Function to check if a package is installed
