@@ -50,6 +50,7 @@ PACKAGES=(
     ttf-terminus-nerd
     ttf-font-awesome
     lxqt-config
+    python-pip
 )
 
 # Function to check if a package is installed
