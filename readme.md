@@ -8,7 +8,7 @@
 
 #### display settings
 - use nvidia-settings (run as root: `sudo nvidia-settings &` to save the configuration to x config)
-- when nvidia-settings are not available just run the install and then use lxrandr (or use xrandr already before installing)
+- when nvidia-settings are not available just run the install and then use lxqt-config (or use xrandr already before installing)
 
 #### secure boot
 - if secure boot does not work disable it temporarly and then follow the tutorial on the [official site](https://wiki.cachyos.org/configuration/secure_boot_setup/)

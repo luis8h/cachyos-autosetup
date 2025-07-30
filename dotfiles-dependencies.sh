@@ -49,6 +49,7 @@ PACKAGES=(
     lxrandr
     ttf-terminus-nerd
     ttf-font-awesome
+    lxqt-config
 )
 
 # Function to check if a package is installed
