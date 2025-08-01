@@ -162,7 +162,11 @@ cargo install silicon
 fc-cache -fv
 
 # tpm
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+else
+    echo "tmux plugin manager (tpm) already installed."
+fi
 
 # switch display manager (might also resolve suspend issues)
 sudo systemctl disable ly.service
@@ -176,3 +180,5 @@ sudo systemctl enable cronie.service
 gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Dark'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 papirus-folders -C cat-mocha-lavender -t Papirus
+
+echo "Finished!"
