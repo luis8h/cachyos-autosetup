@@ -51,6 +51,9 @@ PACKAGES=(
     ttf-font-awesome
     lxqt-config
     python-pip
+    ttf-firacode-nerd
+    xss-lock
+    xorg-xhost
 )
 
 # Function to check if a package is installed
@@ -134,7 +137,7 @@ echo "installing yay ..."
 install_yay
 
 echo "installing yay packages ..."
-install_yay_packages zgen
+install_yay_packages zgen papirus-icon-theme papirus-folders-catppuccin-git
 
 echo "installing other tools ..."
 
@@ -168,3 +171,8 @@ sudo systemctl enable sddm.service
 # enable cronie
 sudo systemctl start cronie.service
 sudo systemctl enable cronie.service
+
+# enable gtk themes (dotfiles need to be installed)
+gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Dark'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+papirus-folders -C cat-mocha-lavender -t Papirus
