@@ -68,7 +68,9 @@
 ## usefull tips
 
 #### general
-- mount ntfs file system on linux: `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0` in /etc/fstab
+- mount ntfs file system on linux: `/dev/nvme1n1p2   /mnt/data   ntfs-3g   rw,uid=1000,gid=1000,umask=022   0 0` in /etc/fstab
+- or with with no permissions set `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0`
+
 
 #### .Xresources
 Not in source control because it depends on the systen which values are good. Here are some examples:

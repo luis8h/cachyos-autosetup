@@ -54,6 +54,7 @@ PACKAGES=(
     ttf-firacode-nerd
     xss-lock
     xorg-xhost
+    ntfs-3g
 )
 
 # Function to check if a package is installed
