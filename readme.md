@@ -46,6 +46,12 @@
 - `crontab -e` to access cron config file
 - append the following line: `@reboot ~/.scripts/clean-downloads.sh`
 
+#### syncthing setup
+- copy docker-compose file into a directory `mkdir -p ~/docker-syncthing && cp ./docker-compose.yml ~/docker-syncthing/` and configure volumes in it
+- **important:** create the synced directory first on the host pc, otherwise it will be created by docker and have root:root as owner (if it is too late you can chown the directory afterwards to make it work)
+- go to the directory and run `docker-compose up -d`
+- configure the sync directories in the webinterface (in advanced sync folder settings set ignore permissions to avoid issues)
+
 #### laptop
 - for high dpi displays set dpi in `.Xresources` like below and set the window scaling to be bigger `gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}]"`
 - change powerbutton behavior in `/etc/systemd/logind.conf` like this:
