@@ -1,6 +1,6 @@
 # autosetup script for cachyos
 
-## guide
+## getting started
 
 ### cachyos
 #### installation
@@ -15,6 +15,7 @@
 - enable setup mode might look different in some uefis, it might be also called clear keys
 
 ### autosetup
+- download and install dotfiles from [here](https://github.com/luis8h/dotfiles)
 - install dotfiles (instructions in repo)
 - install required tools for dotfiles: `./dotfiles-dependencies.sh`
 - install optional tools: `./typical-apps.sh`
@@ -40,5 +41,41 @@
 - to make this persistant just sopy the script like this: `sudo cp disable-some-wake /usr/lib/systemd/system-sleep`
 - this script can be adjusted with the devices which should be disabled
 
-### known issues
+#### downloads autocleaning script
+- cleans the downloads directory in every reboot (moves all files to a `trash` subdirectory)
+- `crontab -e` to access cron config file
+- append the following line: `@reboot ~/.scripts/clean-downloads.sh`
+
+#### laptop
+- for high dpi displays set dpi in `.Xresources` like below and set the window scaling to be bigger `gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}]"`
+- change powerbutton behavior in `/etc/systemd/logind.conf` like this:
+    ```ini
+    HandlePowerKey=suspend
+    HandlePowerKeyLongPress=poweroff
+    ```
+    and reload the config `systemctl kill -s HUP systemd-logind`
+
+## known issues
+#### installation
 - when pacman gives errors a reboot could solve the problems (just run the script again afterwards)
+
+## usefull tips
+
+#### general
+- mount ntfs file system on linux: `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0` in /etc/fstab
+
+#### .Xresources
+Not in source control because it depends on the systen which values are good. Here are some examples:
+```bash
+Xcursor.size: 8
+Xft.dpi: 150
+```
+
+#### gtk theme
+- get selected theme `gsettings get org.gnome.desktop.interface gtk-theme`
+- get selected mode (dark/default) `gsettings get org.gnome.desktop.interface color-scheme`
+- list available themes `ls /usr/share/themes` and `ls ~/.themes`
+- set theme `gsettings set org.gnome.desktop.interface gtk-theme 'Catppuccin-Mocha'`
+- set dark mode `gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'`
+- enable folder colors `papirus-folders -C cat-mocha-lavender -t Papirus`
+
