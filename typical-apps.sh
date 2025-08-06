@@ -22,3 +22,6 @@ yay -S postman-bin --noconfirm
 
 # bitwarden
 sudo pacman -S bitwarden --noconfirm
+
+# betterbird
+sudo pacman -S betterbird --noconfirm

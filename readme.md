@@ -31,18 +31,14 @@
 - press <tmux-prefix> and then shift+i to install the plugins
 - if some plugins do not work afterwards try restarting tmux, deleting the plugins from `.config/tmux/plugins` and install them again
 
-#### auto download cleaning
-- acces cron config: `crontab -e`
-- add the following line `@reboot ~/.scripts/clean-downloads.sh`
-
 #### fix suspend waking up
 - list all devices which are enabled to wake up: `cat /proc/acpi/wakeup | grep enabled`
 - manually toggl enabled/disabled: `sudo sh -c “echo PEG0 > /proc/acpi/wakeup”`
-- to make this persistant just sopy the script like this: `sudo cp disable-some-wake /usr/lib/systemd/system-sleep`
+- to make this persistant just sopy the script like this: `sudo cp disable-some-wake.sh /usr/lib/systemd/system-sleep`
 - this script can be adjusted with the devices which should be disabled
 
 #### downloads autocleaning script
-- cleans the downloads directory in every reboot (moves all files to a `trash` subdirectory)
+- cleans the downloads directory on every reboot (moves all files to a `trash` subdirectory)
 - `crontab -e` to access cron config file
 - append the following line: `@reboot ~/.scripts/clean-downloads.sh`
 
