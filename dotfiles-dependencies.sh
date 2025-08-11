@@ -39,6 +39,7 @@ PACKAGES=(
     gcc
     ttf-jetbrains-mono-nerd
     texlive-binextra
+    texlive
     brave
     sddm
     nemo
