@@ -61,12 +61,19 @@
 #### installation
 - when pacman gives errors a reboot could solve the problems (just run the script again afterwards)
 
+#### polybar
+- it might be necessary to manually remove the file `~/.config/polybar/config` because it will not be overriden with stow and polybar will use it instaed of `config.ini` file
+
 ## usefull tips
 
 #### general
 - mount ntfs file system on linux: `/dev/nvme1n1p2   /mnt/data   ntfs-3g   rw,uid=1000,gid=1000,umask=022   0 0` in /etc/fstab
 - or with with no permissions set `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0`
 
+#### default applications
+- find out the mime-type of a file `file --mime-type your_image.png`
+- find desktop name of an app `ls /usr/share/applications | grep -i loupe` or `ls ~/.local/share/applications | grep -i loupe`
+- set default app `xdg-mime default org.gnome.Loupe.desktop image/png`
 
 #### .Xresources
 Not in source control because it depends on the systen which values are good. Here are some examples:

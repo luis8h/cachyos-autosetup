@@ -25,3 +25,13 @@ sudo pacman -S bitwarden --noconfirm
 
 # betterbird
 sudo pacman -S betterbird --noconfirm
+
+# imave viewer
+sudo pacman -S loupe --noconfirm
+# set as default
+xdg-mime default org.gnome.Loupe.desktop image/png
+xdg-mime default org.gnome.Loupe.desktop image/apng
+xdg-mime default org.gnome.Loupe.desktop image/jpeg
+xdg-mime default org.gnome.Loupe.desktop image/gif
+
+

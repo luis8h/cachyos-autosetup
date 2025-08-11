@@ -55,6 +55,7 @@ PACKAGES=(
     xss-lock
     xorg-xhost
     ntfs-3g
+    jujutsu
 )
 
 # Function to check if a package is installed
