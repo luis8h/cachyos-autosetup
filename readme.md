@@ -66,9 +66,15 @@
 
 ## usefull tips
 
-#### general
+#### mount ntfs
 - mount ntfs file system on linux: `/dev/nvme1n1p2   /mnt/data   ntfs-3g   rw,uid=1000,gid=1000,umask=022   0 0` in /etc/fstab
 - or with with no permissions set `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0`
+
+#### mount webdav
+- configure with `rclone config`
+- create a systemd-service file (look at ditfiles repo for an example)
+- reload `systemctl --user daemon-reload`
+- enable the service `systemctl --user enable --now rclone-webdav.service`
 
 #### default applications
 - find out the mime-type of a file `file --mime-type your_image.png`

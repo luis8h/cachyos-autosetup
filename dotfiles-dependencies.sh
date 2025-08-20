@@ -57,6 +57,7 @@ PACKAGES=(
     xorg-xhost
     ntfs-3g
     jujutsu
+    rclone
 )
 
 # Function to check if a package is installed
