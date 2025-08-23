@@ -59,6 +59,7 @@ PACKAGES=(
     jujutsu
     rclone
     zen-browser
+    ghostty
 )
 
 # Function to check if a package is installed
