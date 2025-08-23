@@ -58,6 +58,7 @@ PACKAGES=(
     ntfs-3g
     jujutsu
     rclone
+    zen-browser
 )
 
 # Function to check if a package is installed
