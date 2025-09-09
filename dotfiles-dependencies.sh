@@ -40,6 +40,7 @@ PACKAGES=(
     ttf-jetbrains-mono-nerd
     texlive-binextra
     texlive
+    texlive-langgerman
     brave
     sddm
     nemo
