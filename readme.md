@@ -31,6 +31,11 @@
 - press <tmux-prefix> and then shift+i to install the plugins
 - if some plugins do not work afterwards try restarting tmux, deleting the plugins from `.config/tmux/plugins` and install them again
 
+#### winapps
+- use the installation instructions of [this website](https://github.com/winapps-org/winapps)
+- first start the docker container `docker compose up`
+- then connect using freerdp `xfreerdp3 /u:"MyWindowsUser" /p:"MyWindowsPassword" -grab-keyboard /v:127.0.0.1 /cert:tofu /f` (**NOTE** usually when connecting for the first time the windows screen is frozen. Just clone the window and run the command again to fix this.)
+
 #### fix suspend waking up
 - list all devices which are enabled to wake up: `cat /proc/acpi/wakeup | grep enabled`
 - manually toggl enabled/disabled: `sudo sh -c “echo PEG0 > /proc/acpi/wakeup”`
