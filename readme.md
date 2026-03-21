@@ -4,7 +4,7 @@
 
 ### cachyos
 #### installation
-- use the graphical installer and chose i3-wm as a window manager
+- use the graphical installer and chose sway as a window manager
 
 #### display settings
 - use nvidia-settings (run as root: `sudo nvidia-settings &` to save the configuration to x config)
@@ -16,7 +16,7 @@
 
 ### autosetup
 - download and install dotfiles from [here](https://github.com/luis8h/dotfiles)
-- install dotfiles (instructions in repo)
+- install dotfiles (instructions in repo) (dont forget to switch away from the adopted changes)
 - install required tools for dotfiles: `./dotfiles-dependencies.sh`
 - install optional tools: `./typical-apps.sh`
 - reboot
@@ -34,7 +34,14 @@
 #### winapps
 - use the installation instructions of [this website](https://github.com/winapps-org/winapps)
 - first start the docker container `docker compose up`
-- then connect using freerdp `xfreerdp3 /u:"MyWindowsUser" /p:"MyWindowsPassword" -grab-keyboard /v:127.0.0.1 /cert:tofu /f` (**NOTE** usually when connecting for the first time the windows screen is frozen. Just clone the window and run the command again to fix this.)
+- then connect using freerdp `xfreerdp3 /u:"MyWindowsUser" /p:"MyWindowsPassword" -grab-keyboard /v:127.0.0.1 /cert:tofu /f` (**NOTE** usually when connecting for the first time the windows screen is frozen. Just close the window and run the command again to fix this.)
+
+#### Wireguard setup
+- create a new config and copy it to this pc
+- move it into the right directory `sudo mv ./config.txt /etc/wireguard/wg0.conf`
+- assign the correct permissions `sudo chmod 600 /etc/wireguard/wg0.conf`
+- start the connection `sudo wg-quick up wg0`
+- if it does not work try regenerating the resolved.conf `sudo resolvconf -u`
 
 #### fix suspend waking up
 - list all devices which are enabled to wake up: `cat /proc/acpi/wakeup | grep enabled`
@@ -46,12 +53,6 @@
 - cleans the downloads directory on every reboot (moves all files to a `trash` subdirectory)
 - `crontab -e` to access cron config file
 - append the following line: `@reboot ~/.scripts/clean-downloads.sh`
-
-#### syncthing setup
-- copy docker-compose file into a directory `mkdir -p ~/docker-syncthing && cp ./docker-compose.yml ~/docker-syncthing/` and configure volumes in it
-- **important:** create the synced directory first on the host pc, otherwise it will be created by docker and have root:root as owner (if it is too late you can chown the directory afterwards to make it work)
-- go to the directory and run `docker-compose up -d`
-- configure the sync directories in the webinterface (in advanced sync folder settings set ignore permissions to avoid issues)
 
 #### laptop
 - for high dpi displays set dpi in `.Xresources` like below and set the window scaling to be bigger `gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}]"`

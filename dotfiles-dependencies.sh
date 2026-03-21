@@ -6,14 +6,16 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    rofi-wayland
+    wireplumber
+    brightnessctl
+    lsd
     git
     curl
     neovim
-    htop
     base-devel
     stow
     rust
-    kitty
     zsh
     tree
     fzf
@@ -24,6 +26,7 @@ PACKAGES=(
     npm
     docker
     docker-compose
+    podman
     ripgrep
     fd
     expat
@@ -41,6 +44,7 @@ PACKAGES=(
     texlive-binextra
     texlive
     texlive-langgerman
+    biber
     brave
     sddm
     nemo
@@ -59,7 +63,6 @@ PACKAGES=(
     ntfs-3g
     jujutsu
     rclone
-    zen-browser
     ghostty
 )
 
@@ -176,8 +179,11 @@ else
 fi
 
 # switch display manager (might also resolve suspend issues)
-sudo systemctl disable ly.service
-sudo systemctl enable sddm.service
+#sudo systemctl disable ly.service
+#sudo systemctl enable sddm.service
+
+# install possibly missing audio drivers
+sudo pacman -S sof-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber alsa-utils alsa-firmware alsa-ucm-conf
 
 # enable cronie
 sudo systemctl start cronie.service

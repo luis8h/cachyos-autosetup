@@ -4,9 +4,6 @@
 sudo pacman -S discord --noconfirm
 sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 
-# freefilesync
-sudo pacman -S freefilesync --noconfirm
-
 # intellij and java
 sudo pacman -S intellij-idea-community-edition --noconfirm
 
@@ -16,9 +13,6 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # go
 sudo pacman -S go --noconfirm
-
-# postman
-yay -S postman-bin --noconfirm
 
 # bitwarden
 sudo pacman -S bitwarden --noconfirm
@@ -34,4 +28,8 @@ xdg-mime default org.gnome.Loupe.desktop image/apng
 xdg-mime default org.gnome.Loupe.desktop image/jpeg
 xdg-mime default org.gnome.Loupe.desktop image/gif
 
+# okular pdf viewer
+sudo pacman -S okular --noconfirm
 
+# for wireguard to work
+sudo pacman -S openresolv wireguard-tools
