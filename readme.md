@@ -31,6 +31,13 @@
 - press <tmux-prefix> and then shift+i to install the plugins
 - if some plugins do not work afterwards try restarting tmux, deleting the plugins from `.config/tmux/plugins` and install them again
 
+### Syncthing
+- Create directory: `mkdir -p ~/.config/containers/systemd/`
+- Copy filel `cp ./syncthing.container ~/.config/containers/systemd/`
+- Modify the volumes to match the correct directories (need to exist in advance for the container to work)
+- `systemctl --user daemon-reload`
+- `systemctl --user start syncthing`
+
 #### winapps
 - use the installation instructions of [this website](https://github.com/winapps-org/winapps)
 - first start the docker container `docker compose up`

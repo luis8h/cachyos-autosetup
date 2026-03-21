@@ -6,6 +6,8 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    swayidle
+    swaylock
     rofi-wayland
     wireplumber
     brightnessctl
