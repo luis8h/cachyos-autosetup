@@ -6,6 +6,7 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    neovim-nightly-bin
     swayidle
     swaylock
     rofi-wayland
@@ -14,7 +15,6 @@ PACKAGES=(
     lsd
     git
     curl
-    neovim
     base-devel
     stow
     rust
