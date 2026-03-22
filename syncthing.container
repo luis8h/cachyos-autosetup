@@ -16,7 +16,7 @@ PublishPort=21027:21027/udp
 # Official image uses /var/syncthing/config for config
 # and you can map your data wherever you like inside.
 Volume=/home/luis8h/store/container/syncthing/config/:/var/syncthing/config:z
-Volume=/home/luis8h/store/kbase/:/kbase:z
+Volume=/home/luis8h/store/sync/:/sync:z
 
 [Service]
 Restart=always
