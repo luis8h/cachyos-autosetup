@@ -6,6 +6,10 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    fcitx5
+    fcitx5-gtk
+    fcitx5-qt
+    fcitx5-configtool
     neovim-nightly-bin
     swayidle
     swaylock
