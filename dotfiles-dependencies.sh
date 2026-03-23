@@ -6,6 +6,10 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    kanshi
+    nwg-displays
+    cliphist
+    wl-clipboard
     hyprpicker
     swaybg
     satty
