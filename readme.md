@@ -26,6 +26,10 @@
 - reboot
 
 ### post setup
+
+#### Email
+- Use a betterbird backup (`.thunderbird` directory) and just copy it into the HOME dir on the new system
+
 #### tmux
 - start a tmux session, and navigate to the `tmux.conf` file in nvim
 - press <tmux-prefix> and then shift+i to install the plugins
