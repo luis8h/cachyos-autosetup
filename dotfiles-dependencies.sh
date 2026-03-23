@@ -6,6 +6,12 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    satty
+    grim
+    slurp
+    polkit-gnome
+    swaync
+    network-manager-applet
     fcitx5
     fcitx5-gtk
     fcitx5-qt
