@@ -11,6 +11,9 @@ sudo pacman -S intellij-idea-community-edition --noconfirm
 sudo pacman -S pycharm-community-edition --noconfirm
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+# bun
+curl -fsSL https://bun.sh/install | bash
+
 # go
 sudo pacman -S go --noconfirm
 
