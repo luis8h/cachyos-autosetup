@@ -35,4 +35,4 @@ xdg-mime default org.gnome.Loupe.desktop image/gif
 sudo pacman -S okular --noconfirm
 
 # for wireguard to work
-sudo pacman -S openresolv wireguard-tools
+sudo pacman -S wireguard-tools
