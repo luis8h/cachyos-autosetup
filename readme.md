@@ -11,6 +11,7 @@
 #### Secure boot
 - if secure boot does not work disable it temporarly and then follow the tutorial on the [official site](https://wiki.cachyos.org/configuration/secure_boot_setup/)
 - enable setup mode might look different in some uefis, it might be also called clear keys
+- The setup mode could also be disabled, just continue it might still work
 
 ### Autosetup
 - download and install dotfiles from [here](https://github.com/luis8h/dotfiles)
