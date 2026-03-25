@@ -36,3 +36,12 @@ sudo pacman -S okular --noconfirm
 
 # for wireguard to work
 sudo pacman -S wireguard-tools
+
+# localsend (needs ports open to work)
+sudo pacman -S localsend
+sudo ufw allow 53317/tcp
+sudo ufw allow 53317/udp
+sudo ufw reload
+
+# vesktop for discord client alternative
+sudo yay -S vesktop
