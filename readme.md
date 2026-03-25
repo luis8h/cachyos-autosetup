@@ -1,48 +1,46 @@
 # autosetup script for cachyos
 
-## getting started
+> **NVIDIA:** When using an NVIDIA GPU go to [this file](./nvidia-setup.md) after the basic cachyos setup to solve problems and enable proper support.
+
+## Getting Started
 
 ### cachyos
-#### installation
+#### Installation
 - use the graphical installer and chose sway as a window manager
 
-#### display settings
-- use nvidia-settings (run as root: `sudo nvidia-settings &` to save the configuration to x config)
-- when nvidia-settings are not available just run the install and then use lxqt-config (or use xrandr already before installing)
-
-#### secure boot
+#### Secure boot
 - if secure boot does not work disable it temporarly and then follow the tutorial on the [official site](https://wiki.cachyos.org/configuration/secure_boot_setup/)
 - enable setup mode might look different in some uefis, it might be also called clear keys
 
-### autosetup
+### Autosetup
 - download and install dotfiles from [here](https://github.com/luis8h/dotfiles)
 - install dotfiles (instructions in repo) (dont forget to switch away from the adopted changes)
 - install required tools for dotfiles: `./dotfiles-dependencies.sh`
 - install optional tools: `./typical-apps.sh`
 - reboot
 
-#### laptop
+#### Laptop specific
 - setup kanata `./setup-kanata.sh`
 - reboot
 
-### post setup
+### Post Setup
 
 #### Email
 - Use a betterbird backup (`.thunderbird` directory) and just copy it into the HOME dir on the new system
 
-#### tmux
+#### Tmux
 - start a tmux session, and navigate to the `tmux.conf` file in nvim
 - press <tmux-prefix> and then shift+i to install the plugins
 - if some plugins do not work afterwards try restarting tmux, deleting the plugins from `.config/tmux/plugins` and install them again
 
-### Syncthing
+#### Syncthing
 - Create directory: `mkdir -p ~/.config/containers/systemd/`
 - Copy filel `cp ./syncthing.container ~/.config/containers/systemd/`
 - Modify the volumes to match the correct directories (need to exist in advance for the container to work)
 - `systemctl --user daemon-reload`
 - `systemctl --user start syncthing`
 
-#### winapps
+#### Winapps
 - use the installation instructions of [this website](https://github.com/winapps-org/winapps)
 - first start the docker container `docker compose up`
 - then connect using freerdp `xfreerdp3 /u:"MyWindowsUser" /p:"MyWindowsPassword" -grab-keyboard /v:127.0.0.1 /cert:tofu /f` (**NOTE** usually when connecting for the first time the windows screen is frozen. Just close the window and run the command again to fix this.)
@@ -54,7 +52,7 @@
 - start the connection `sudo wg-quick up wg0`
 - if it does not work try regenerating the resolved.conf `sudo resolvconf -u`
 
-#### fix suspend waking up
+#### Suspend Waking Up
 - list all devices which are enabled to wake up: `cat /proc/acpi/wakeup | grep enabled`
 - manually toggl enabled/disabled: `sudo sh -c “echo PEG0 > /proc/acpi/wakeup”`
 - to make this persistant just sopy the script like this: `sudo cp disable-some-wake.sh /usr/lib/systemd/system-sleep`
@@ -65,7 +63,7 @@
 - `crontab -e` to access cron config file
 - append the following line: `@reboot ~/.scripts/clean-downloads.sh`
 
-#### laptop
+#### Laptop (probably deprecated)
 - for high dpi displays set dpi in `.Xresources` like below and set the window scaling to be bigger `gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <2>}]"`
 - change powerbutton behavior in `/etc/systemd/logind.conf` like this:
     ```ini
@@ -74,16 +72,13 @@
     ```
     and reload the config `systemctl kill -s HUP systemd-logind`
 
-## known issues
-#### installation
+## Known Issues
+#### Installation
 - when pacman gives errors a reboot could solve the problems (just run the script again afterwards)
 
-#### polybar
-- it might be necessary to manually remove the file `~/.config/polybar/config` because it will not be overriden with stow and polybar will use it instaed of `config.ini` file
+## Usefull Tips
 
-## usefull tips
-
-#### mount ntfs
+#### Mount NTFS
 - mount ntfs file system on linux: `/dev/nvme1n1p2   /mnt/data   ntfs-3g   rw,uid=1000,gid=1000,umask=022,nofail,x-systemd.automount,x-systemd.device-timeout=10   0 0` in /etc/fstab
 - or with with no permissions set `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0`
 
