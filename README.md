@@ -26,6 +26,9 @@
 
 ### Post Setup
 
+#### Monitor Management
+Currently only `nwg-display` is used to configure displays and load/create profiles. The problem is that the profiles do not get applied automatically. So frequent switching between Monitors is annoying. There is a solution to this named `kanshi`. It is already installed but commented out in the sway config. This tool has its own config file and automatically detects different profiles. But there is no gui editor for these files currently. Maybe in the future `nwg-display` will support writing those files too, but currently not. Another workaround could be a script that translates the config.
+
 #### Email
 - Use a betterbird backup (`.thunderbird` directory) and just copy it into the HOME dir on the new system
 
