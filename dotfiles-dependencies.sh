@@ -33,7 +33,6 @@ PACKAGES=(
     curl
     base-devel
     stow
-    rust
     zsh
     tree
     fzf
@@ -168,6 +167,10 @@ echo "installing yay packages ..."
 install_yay_packages zgen papirus-icon-theme papirus-folders-catppuccin-git
 
 echo "installing other tools ..."
+
+# rust (manual)
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
 
 # kanata
 cargo install kanata
