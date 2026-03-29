@@ -6,6 +6,7 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    flatpak
     kanshi
     nwg-displays
     cliphist

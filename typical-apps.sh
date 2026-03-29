@@ -45,3 +45,6 @@ sudo ufw reload
 
 # vesktop for discord client alternative
 sudo yay -S vesktop
+
+# spotify
+flatpak install flathub com.spotify.Client
