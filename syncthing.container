@@ -6,7 +6,7 @@ Image=docker.io/syncthing/syncthing:latest
 
 # Keep your identity inside the container
 UserNS=keep-id
-User=1000:1000
+User=0:0
 
 # Ports
 PublishPort=8384:8384
