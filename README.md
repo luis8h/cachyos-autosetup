@@ -86,6 +86,9 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 - mount ntfs file system on linux: `/dev/nvme1n1p2   /mnt/data   ntfs-3g   rw,uid=1000,gid=1000,umask=022,nofail,x-systemd.automount,x-systemd.device-timeout=10   0 0` in /etc/fstab
 - or with with no permissions set `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0`
 
+#### Markdown -> PDF
+- `md-to-pdf ./submissions/Module0.md`
+
 #### mount webdav
 - configure with `rclone config`
 - create a systemd-service file (look at ditfiles repo for an example)

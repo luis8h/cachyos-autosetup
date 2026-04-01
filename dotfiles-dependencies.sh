@@ -6,7 +6,6 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
-    pandoc
     flatpak
     kanshi
     nwg-displays

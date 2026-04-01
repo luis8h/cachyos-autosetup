@@ -14,6 +14,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 # bun
 curl -fsSL https://bun.sh/install | bash
 
+# markdown -> pdf
+bun i -g md-to-pdf
+
 # go
 sudo pacman -S go --noconfirm
 
