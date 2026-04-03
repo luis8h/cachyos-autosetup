@@ -6,7 +6,6 @@ Image=docker.io/syncthing/syncthing:latest
 
 # Keep your identity inside the container
 UserNS=keep-id
-User=0:0
 
 # Ports
 PublishPort=8384:8384
@@ -19,8 +18,16 @@ PublishPort=21027:21027/udp
 Volume=/home/luis8h/store/container/syncthing/config/:/var/syncthing/config:z
 Volume=/home/luis8h/store/sync/:/sync:z
 
+[Unit]
+Description=Syncthing
+# Replace slashes with dashes, drop leading slash
+# Ensure that the external drive is mounted first
+After=home-luis8h-store-sync-data.mount
+Requires=home-luis8h-store-sync-data.mount
+
 [Service]
 Restart=always
 
 [Install]
 WantedBy=default.target
+
