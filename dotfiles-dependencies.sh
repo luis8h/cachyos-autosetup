@@ -45,6 +45,7 @@ PACKAGES=(
     docker
     docker-compose
     podman
+    podman-compose
     ripgrep
     fd
     expat
