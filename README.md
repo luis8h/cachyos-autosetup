@@ -83,6 +83,10 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 
 ## Usefull Tips
 
+#### System Snapshots
+- snapper is setup by default to create a snapshot for every pacman command
+- if anything breaks by a system update, open btrfs-assistant (gui tool) and just restore a previous snapshot
+
 #### Mount NTFS
 - mount ntfs file system on linux: `UUID=1ECA8969CA893DD1   /home/luis8h/store/sync/data   ntfs-3g   rw,uid=1000,gid=1000,umask=022,nofail   0 0` in /etc/fstab
 - or with with no permissions set `/dev/nvme1n1p2 /mnt/data ntfs-3g rw 0 0`
