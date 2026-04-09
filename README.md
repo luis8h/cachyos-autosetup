@@ -48,6 +48,7 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 - use the installation instructions of [this website](https://github.com/winapps-org/winapps)
 - first start the docker container `docker compose up`
 - then connect using freerdp `xfreerdp3 /u:"MyWindowsUser" /p:"MyWindowsPassword" -grab-keyboard /v:127.0.0.1 /cert:tofu /f` (**NOTE** usually when connecting for the first time the windows screen is frozen. Just close the window and run the command again to fix this.)
+- NOTE: when first starting the container its not possible to connect to the vm immediatly because it needs to install first (look at `http://127.0.0.1:8006/` in a browser to see the progress)
 
 #### Wireguard setup
 - create a new config and copy it to this pc
