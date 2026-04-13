@@ -6,27 +6,28 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
-    xdg-desktop-portal-gtk # remove from the system if there are any errors related to opening the file browser from an application
+    xdg-desktop-portal-hyprland # hyprland-native portal (replaces xdg-desktop-portal-gtk)
     flatpak
     kanshi
     nwg-displays
     cliphist
     wl-clipboard
     hyprpicker
-    swaybg
+    hyprpaper           # replaces swaybg (hyprland-native wallpaper)
     satty
     grim
     slurp
     polkit-gnome
     swaync
     network-manager-applet
+    nm-connection-editor
     fcitx5
     fcitx5-gtk
     fcitx5-qt
     fcitx5-configtool
     neovim-nightly-bin
     swayidle
-    swaylock
+    hyprlock            # replaces swaylock (hyprland-native lock screen)
     rofi-wayland
     wireplumber
     brightnessctl
@@ -40,7 +41,6 @@ PACKAGES=(
     fzf
     zoxide
     tmux
-    xclip
     nodejs
     npm
     docker
@@ -69,17 +69,10 @@ PACKAGES=(
     sddm
     nemo
     cronie
-    flameshot
-    network-manager-applet
-    nm-connection-editor
-    lxrandr
     ttf-terminus-nerd
     ttf-font-awesome
-    lxqt-config
-    python-pip
     ttf-firacode-nerd
-    xss-lock
-    xorg-xhost
+    python-pip
     ntfs-3g
     jujutsu
     rclone
@@ -160,20 +153,20 @@ set_default_shell_to_zsh() {
     chsh -s "$zsh_path"
 }
 
-echo "installing pacman packages ..."
+echo "Installing pacman packages..."
 install_packages
 
-echo "installing yay ..."
+echo "Installing yay..."
 install_yay
 
-echo "installing yay packages ..."
+echo "Installing yay packages..."
 install_yay_packages zgen papirus-icon-theme papirus-folders-catppuccin-git
 
-echo "installing other tools ..."
+echo "Installing other tools..."
 
 # rust (manual)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
+source "$HOME/.cargo/env"
 
 # kanata
 cargo install kanata
@@ -184,7 +177,7 @@ set_default_shell_to_zsh
 # docker
 sudo systemctl start docker.service
 sudo systemctl enable docker.service
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 
 # needed for treesitter auto_install to work with vimtex
 sudo npm install -g tree-sitter-cli
@@ -201,10 +194,6 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 else
     echo "tmux plugin manager (tpm) already installed."
 fi
-
-# switch display manager (might also resolve suspend issues)
-#sudo systemctl disable ly.service
-#sudo systemctl enable sddm.service
 
 # install possibly missing audio drivers
 sudo pacman -S sof-firmware pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber alsa-utils alsa-firmware alsa-ucm-conf
