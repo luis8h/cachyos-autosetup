@@ -4,9 +4,28 @@
 
 ## Getting Started
 
-### cachyos
-#### Installation
-- use the graphical installer and chose sway as a window manager
+### CachyOS Installation Guide
+
+Follow these steps to ensure a smooth installation of CachyOS with the Sway window manager.
+
+####  Core Installation
+* **Installer:** Launch the **Graphical Installer**.
+* **Desktop Environment:** Select **Hyprland** as your window manager during the component selection phase.
+
+####  Manual Partitioning & Mount Points
+When manually configuring your drive, use the following specifications for your mount points:
+
+| Mount Point | Size (MiB) | Filesystem | Label | Flags |
+| :--- | :--- | :--- | :--- | :--- |
+| `/boot` | `4096` | **FAT32** | *Leave Empty* | `boot` |
+| `/` | `Remaining` | **Btrfs** | *Your Choice* | *None* |
+
+> **⚠️ Important:** Do **not** use a label for the `/boot` partition, as this may cause the installation process to fail.
+
+
+####  Additional Resources
+Partitioning requirements and best practices can evolve. For the most up-to-date information, please refer to the official documentation:
+👉 **[CachyOS Wiki: Installation on Root](https://wiki.cachyos.org/installation/installation_on_root/)**
 
 #### Secure boot
 - if secure boot does not work disable it temporarly and then follow the tutorial on the [official site](https://wiki.cachyos.org/configuration/secure_boot_setup/)
