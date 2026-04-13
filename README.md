@@ -1,6 +1,6 @@
 # autosetup script for cachyos
 
-> **NVIDIA:** When using an NVIDIA GPU go to [this file](./nvidia-setup.md) after the basic cachyos setup to solve problems and enable proper support.
+> **NVIDIA:** When using an NVIDIA GPU go to [this file](./nvidia-setup.md) after the basic cachyos setup to solve problems and enable proper support. It did not work on sway but seems to work out of the box for hyprland though.
 
 ## Getting Started
 
@@ -58,7 +58,7 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 
 #### Syncthing
 - Create directory: `mkdir -p ~/.config/containers/systemd/`
-- Copy filel `cp ./syncthing.container ~/.config/containers/systemd/`
+- Copy file `cp ./syncthing.container ~/.config/containers/systemd/`
 - Modify the volumes to match the correct directories (need to exist in advance for the container to work)
 - `systemctl --user daemon-reload`
 - `systemctl --user start syncthing`
