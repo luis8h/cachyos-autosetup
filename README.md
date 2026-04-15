@@ -102,6 +102,12 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 
 ## Usefull Tips
 
+#### Use keychain (ssh)
+Just run the following command to activate the key in a shell:
+```sh
+eval $(keychain --eval ~/.ssh/id_ed25519)
+```
+
 #### System Snapshots
 - snapper is setup by default to create a snapshot for every pacman command
 - if anything breaks by a system update, open btrfs-assistant (gui tool) and just restore a previous snapshot
