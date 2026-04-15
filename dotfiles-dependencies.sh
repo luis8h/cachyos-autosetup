@@ -6,6 +6,7 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    wlr-randr
     keychain
     xdg-desktop-portal-hyprland # hyprland-native portal (replaces xdg-desktop-portal-gtk)
     xdg-desktop-portal-gtk # remove from the system if there are any errors related to opening the file browser from an application
