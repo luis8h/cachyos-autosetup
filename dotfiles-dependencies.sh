@@ -6,6 +6,7 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    hyprpolkitagent
     wlr-randr
     keychain
     xdg-desktop-portal-hyprland # hyprland-native portal (replaces xdg-desktop-portal-gtk)
