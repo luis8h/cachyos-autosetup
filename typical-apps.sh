@@ -38,7 +38,7 @@ xdg-mime default org.gnome.Loupe.desktop image/gif
 sudo pacman -S okular --noconfirm
 
 # for wireguard to work
-sudo pacman -S wireguard-tools
+sudo pacman -S wireguard-tools --noconfirm
 
 # localsend (needs ports open to work)
 sudo pacman -S localsend
@@ -53,4 +53,7 @@ sudo yay -S vesktop
 flatpak install flathub com.spotify.Client
 
 # obsidian
-sudo pacman -S obsidian
+sudo pacman -S obsidian --noconfirm
+
+# office
+sudo pacman -S libreoffice-fresh --noconfirm
