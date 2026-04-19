@@ -1,12 +1,31 @@
 # autosetup script for cachyos
 
-> **NVIDIA:** When using an NVIDIA GPU go to [this file](./nvidia-setup.md) after the basic cachyos setup to solve problems and enable proper support.
+> **NVIDIA:** When using an NVIDIA GPU go to [this file](./nvidia-setup.md) after the basic cachyos setup to solve problems and enable proper support. It did not work on sway but seems to work out of the box for hyprland though.
 
 ## Getting Started
 
-### cachyos
-#### Installation
-- use the graphical installer and chose sway as a window manager
+### CachyOS Installation Guide
+
+Follow these steps to ensure a smooth installation of CachyOS with the Sway window manager.
+
+####  Core Installation
+* **Installer:** Launch the **Graphical Installer**.
+* **Desktop Environment:** Select **Hyprland** as your window manager during the component selection phase.
+
+####  Manual Partitioning & Mount Points
+When manually configuring your drive, use the following specifications for your mount points:
+
+| Mount Point | Size (MiB) | Filesystem | Label | Flags |
+| :--- | :--- | :--- | :--- | :--- |
+| `/boot` | `4096` | **FAT32** | *Leave Empty* | `boot` |
+| `/` | `Remaining` | **Btrfs** | *Your Choice* | *None* |
+
+> **⚠️ Important:** Do **not** use a label for the `/boot` partition, as this may cause the installation process to fail.
+
+
+####  Additional Resources
+Partitioning requirements and best practices can evolve. For the most up-to-date information, please refer to the official documentation:
+👉 **[CachyOS Wiki: Installation on Root](https://wiki.cachyos.org/installation/installation_on_root/)**
 
 #### Secure boot
 - if secure boot does not work disable it temporarly and then follow the tutorial on the [official site](https://wiki.cachyos.org/configuration/secure_boot_setup/)
@@ -39,7 +58,7 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 
 #### Syncthing
 - Create directory: `mkdir -p ~/.config/containers/systemd/`
-- Copy filel `cp ./syncthing.container ~/.config/containers/systemd/`
+- Copy file `cp ./syncthing.container ~/.config/containers/systemd/`
 - Modify the volumes to match the correct directories (need to exist in advance for the container to work)
 - `systemctl --user daemon-reload`
 - `systemctl --user start syncthing`
@@ -82,6 +101,12 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 - when pacman gives errors a reboot could solve the problems (just run the script again afterwards)
 
 ## Usefull Tips
+
+#### Use keychain (ssh)
+Just run the following command to activate the key in a shell:
+```sh
+eval $(keychain --eval ~/.ssh/id_ed25519)
+```
 
 #### System Snapshots
 - snapper is setup by default to create a snapshot for every pacman command

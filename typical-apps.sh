@@ -51,3 +51,6 @@ sudo yay -S vesktop
 
 # spotify
 flatpak install flathub com.spotify.Client
+
+# obsidian
+sudo pacman -S obsidian
