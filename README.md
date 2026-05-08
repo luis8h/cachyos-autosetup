@@ -63,6 +63,35 @@ Currently only `nwg-display` is used to configure displays and load/create profi
 - `systemctl --user daemon-reload`
 - `systemctl --user start syncthing`
 
+#### Discord Shortcuts
+
+Currently there are issues with discord not being able to record shortcuts in walyand native. So it is currently better to run it in XWayland Mode. To do this, discord can be run using the following command:
+```sh
+Exec=env ELECTRON_OZONE_PLATFORM_HINT=x11 discord
+```
+
+To make this permanent (only for discord to not affect other apps), the desktop entry needs to be modified like this:
+
+First copy the original desktop entry:
+```sh
+cp /usr/share/applications/discord.desktop ~/.local/share/applications/
+```
+
+Then modify this new entry and change the `Exec` line to this:
+```sh
+Exec=env ELECTRON_OZONE_PLATFORM_HINT=x11 /usr/bin/discord
+```
+
+And run update to make the actions take effect or reboot:
+```sh
+update-desktop-database ~/.local/share/applications
+```
+
+Additionally to make the shortcuts not only work in discord but also from other apps, the following line was added to the `hyprland.conf` (so no action required):
+```ini
+bind = , F8, pass, class:^discord$
+```
+
 #### Winapps
 - use the installation instructions of [this website](https://github.com/winapps-org/winapps)
 - first start the docker container `docker compose up`
