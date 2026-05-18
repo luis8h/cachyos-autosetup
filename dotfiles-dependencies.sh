@@ -6,6 +6,7 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    gopass
     wtype # for rofi-pass
     hyprpolkitagent
     wlr-randr
