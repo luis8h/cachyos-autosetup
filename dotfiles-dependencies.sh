@@ -6,6 +6,8 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    rofi-rbw
+    rbw
     gopass
     wtype # for rofi-pass
     hyprpolkitagent
