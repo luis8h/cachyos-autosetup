@@ -6,6 +6,7 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    hyprsunset
     rofi-rbw
     rbw
     gopass
