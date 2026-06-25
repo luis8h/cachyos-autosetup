@@ -6,6 +6,9 @@ sudo pacman -Syu
 
 # List of required packages
 PACKAGES=(
+    cups
+    gutenprint
+    system-config-printer
     hyprsunset
     rofi-rbw
     rbw
