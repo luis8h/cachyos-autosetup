@@ -9,6 +9,8 @@ PACKAGES=(
     cups
     gutenprint
     system-config-printer
+    gnome-keyring
+    seahorse # gui for keyring
     hyprsunset
     rofi-rbw
     rbw
